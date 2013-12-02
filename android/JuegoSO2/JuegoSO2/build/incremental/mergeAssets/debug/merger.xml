@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/a/Dropbox/htdocs/juegoso/gameSO/android/JuegoSO2/JuegoSO2/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/a/Dropbox/htdocs/juegoso/gameSO/android/JuegoSO2/JuegoSO2/src/debug/assets" />
+    </dataSet>
+
+</merger>

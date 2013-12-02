@@ -138,8 +138,15 @@ function onWinCondition(){
 	temp();
 }
 var aInt = null;
+var time_left = 0;
 function temp(){
-	aInt = setInterval(tick,20000);
+	time_left = 60000;
+	aInt = setInterval(tick,60000);
+	aInt = setInterval(update_clock,1000);
+}
+function update_clock(){
+	document.getElementById("clock").innerHTML = time_left/1000;
+	time_left -= 1000;
 }
 var iWon = false;
 function tick(){
