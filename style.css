@@ -1,4 +1,5 @@
 
+
 body{
 	font-family: arial;
 	margin: 0px; /* for IE6 / IE7 */
@@ -19,7 +20,6 @@ td{width:50px}
 	float :left;
 }
 #head,#footer,th, #temp{
-		width:100%;
                	/*background: url('head.jpeg');*/
 		background-color: #6699FF;
 		padding-top:10px;
@@ -125,6 +125,11 @@ td{width:50px}
 		height: 100px;
 		padding-top: 20px;
 	    } 
-
+	    .clock {
+		    border:1px solid black
+		margin-bottom:10px;
+		font-size:15pt;
+		color:red;
+	}
 
 

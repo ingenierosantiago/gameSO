@@ -59,6 +59,7 @@ showContent = function () {
 						'td3 = ' + td3 + '<br>' +
 						'td4 = ' + td4 + '<br>' +
 						'td5 = ' + td5;
+	 var compara =new Array();
 };
 
 
@@ -140,12 +141,12 @@ function onWinCondition(){
 var aInt = null;
 var time_left = 0;
 function temp(){
-	time_left = 60000;
-	aInt = setInterval(tick,60000);
+	time_left = 30000;
+	aInt = setInterval(tick,time_left);
 	aInt = setInterval(update_clock,1000);
 }
 function update_clock(){
-	document.getElementById("clock").innerHTML = time_left/1000;
+	document.getElementById("clock").innerHTML = time_left/1000 +' segundos restantes  ';
 	time_left -= 1000;
 }
 var iWon = false;
