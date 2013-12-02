@@ -1,0 +1,157 @@
+<html>
+<head>
+	<script>
+		var N = -1;
+		tmt = null;
+		time_left = 60;
+		a = [];
+		b = [];
+		c = []; 
+		current = N;
+		function $(a){
+			return document.getElementById(a);
+		}
+		function a2html(a, f, deco){
+			var dx = "<ul>";
+			for(var i in a){
+				h = f + "("+i+")";
+				dx += "<li>";
+				dx += "<a href='#' onclick='"+h+"'>";
+				if(a[i] != N){
+					dx += "el" + (1 + a[i]);
+				}
+				dx += deco;
+				dx += "</a>";
+				dx += "</li>";
+			}
+			dx += "</ul>";
+			return dx;
+		}
+		function redraw(){
+			var dx;
+			var dy;
+			dx = a2html(a, "setCurrent", "&gt;&gt;" );
+			$("div1").innerHTML = dx;
+			dy = a2html(b, "putIn", "&gt;&gt;");
+			$("div2").innerHTML = dy;
+			dy = a2html(c, "void", "");
+			$("div3").innerHTML = dy;
+		}
+		function setCurrent(cidx){
+			current = cidx;
+		}
+		function putIn(idx){
+			//taken
+			if(b[idx] != N){
+				return;
+			}
+			//nothing
+			if(a[current] == N){
+				return;
+			}
+			b[idx] = a[current];
+			a[current] = N;
+			current = N;
+			validate_win_condition();
+			validate_no_possible_win_condition();
+			redraw();
+		}
+		function validate_no_possible_win_condition(){
+			var ok = 0;
+			for(var i in a){
+				if(a[i] != N){
+					ok = 1;
+					break;
+				}
+			}
+			if(ok == 0){
+				alert("You cant win.");
+
+			}
+		}
+		function reset_game(){
+			time_left = 60;
+			a = [0,1,2,3,4];
+			b = [N,N,N,N,N];
+			c = [0,1,2,3,4]; // todo random
+			c = shuffle(c);
+		
+		}
+		function rand(n){
+			return Math.floor(Math.random()*n);
+		}
+		function shuffle(c){
+			var x = 0;
+			var c1 = c;
+			while(x<100){
+				var lidx = rand(c.length);
+				var ridx = rand(c.length);
+				var temp = c1[lidx];
+				c1[lidx] = c1[ridx];
+				c1[ridx] = temp;
+				x++;
+			}
+			return c1;
+		}
+		function validate_win_condition(){
+			var ok = 1;
+			for(var i in b){
+				if(b[i] != c[i]){
+					ok=0;
+					break;
+				}
+			}
+			if(ok == 1){
+				redraw();
+				alert("you win");
+				cleatTimeout(tmt);
+				init();
+			}
+
+		}
+		function timer(){
+			time_left--;
+			if(time_left == 0){
+				alert("game over");
+				reset_game();
+				redraw();
+			}
+			tmt = setTimeout(timer, 1000);
+			$("clock").innerHTML = time_left;
+			$("clock_bar").style.width = time_left;
+		}
+		function init(){
+			reset_game();
+			redraw();
+			timer();//start_
+		}
+		function restart(){
+			reset_game();
+			time_left = 60;
+			redraw();
+		}
+	</script>
+</head>
+<body >
+	<button onclick="init()">Empezar</button>
+	<button onclick="restart()">Reiniciar</button>
+	<table border=1>
+		<tr><td>
+	<div id=div1>
+	</div>
+	</td><td>
+
+	<div id=div2>
+	</div>
+	</td><td>
+
+	<div id=div3>
+	</div>
+	</td></tr></table>
+	time left:
+	<span id=clock>
+	</span>
+	<div id=clock_bar style='width:60;height:24px;background-color:blue'>&nbsp;</div>
+
+</body>
+
