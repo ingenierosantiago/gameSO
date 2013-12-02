@@ -1,0 +1,130 @@
+
+body{
+	font-family: arial;
+	margin: 0px; /* for IE6 / IE7 */
+}
+table{
+	float:left;
+	border-spacing:0;
+    	border-collapse:collapse;
+	border: 2px dotted #aad4ff;
+}
+.space{margin-left:40px}
+td{width:50px}
+/* drag area */
+#drag{
+	display: table;
+	width: 100%;
+	margin: auto;
+	float :left;
+}
+#head,#footer,th, #temp{
+		width:100%;
+               	/*background: url('head.jpeg');*/
+		background-color: #6699FF;
+		padding-top:10px;
+		color:white;
+	    }
+#head{
+	padding-left:40px;
+	height:50px;
+	font-size:9pt;
+	margin-bottom:20px;}
+
+/* drag objects (DIV elements inside table cells) */
+.drag{
+	color:black;
+	cursor: move;
+	margin: 2px;
+	z-index: 10;
+	background-color: white;
+	text-align: center;
+	font-size: 8.5pt; /* needed for cloned object */
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	/* without width, IE6/7 will not apply filter/opacity to the element ?! */
+	width: 80px;
+	height: 35px;
+	line-height: 35px;
+	/* round corners */
+	border-radius: 4px; /* Opera, Chrome */
+	-moz-border-radius: 4px; /* FF */
+}
+.drag:active{
+	opacity: 0.5;
+	color:white;
+	font-size:12pt;
+
+}
+
+/* styles for left table */
+#table1{
+	background-color: #ccd4ff;
+	border-collapse: collapse;
+	margin-top: 0px;
+}
+	/* border for table1 */
+	#table1 td {
+		border: 1px solid #DDC5B5;
+		height: 50px;
+		text-align: center;
+		font-size: 10pt;
+		padding: 2px;
+	}
+
+/* green objects */
+.green {
+	border: 2px solid #499B33;
+}
+.green:active{
+	border: 2px dashed white;
+	background-color: #499B33;
+}
+
+/* orange objects */
+.orange {
+	border: 2px solid #BF6A30;
+}
+.orange:active{
+	border: 2px dashed white;
+	background-color: #BF6A30;
+}
+
+
+/***************** boton comenzar juego **************************************************/
+	    button{
+	    	width: 120px;
+		height: 30px;
+		background: #6699FF;
+		color: #ffffff;
+		cursor: pointer;
+		border: 0px; 
+		margin-bottom:20px;
+		margin-right:5px;
+		text-transform:uppercase;
+		border-radius:20%/40%;
+		font-size:9pt;
+		font-weight:bold;
+	    }
+
+	    button:hover{
+	    	border: 2px dotted #6699FF;
+		background-color:white;
+		color:#6699FF;
+		font-size:7pt;
+   	    }
+	    #message {
+		padding-left: 10px;
+		color: #6A93D4;
+		height: 100px;
+		padding-top: 20px;
+	    } 
+	    #score {
+		padding-left: 10px;
+		color: red;
+		height: 100px;
+		padding-top: 20px;
+	    } 
+
+
+
